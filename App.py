@@ -1,6 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+portfolio=[]
+while (ui := input("> ").lower()) != "n":
+    ticker=input("Tickers: ")
+    portfolio.append(ticker)
 
 def get_dataframe_from_csv(filename):
     df = pd.read_csv(filename)
