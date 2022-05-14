@@ -1,20 +1,23 @@
-from traceback import print_tb
-import pandas as pd
 import yfinance as yf
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 class CreatePortfolio:
-    def get_closing_prices(portfolio, period):
-        allPrices={}
+    def createPortfolio(portfolio, period):
+        finalPortfolio={}
         try:
             for tckr in portfolio:
                 tckr=tckr.upper()
-                tempTicker = yf.Ticker(tckr)
-                tempData = tempTicker.history(period)
-                tempClosingPrice= tempData["Close"]
-                allPrices[tckr]=[round(val, 2) for val in tempClosingPrice.tolist()]
-            return allPrices
+                try:
+                    tempTicker = yf.Ticker(tckr)
+                    tempData = tempTicker.history(period)
+                    tempClosingPrice= tempData["Close"]
+                    finalPortfolio[tckr]=[round(val, 2) for val in tempClosingPrice.tolist()]
+                except:
+                    print(f"Couldn't find data for {tckr}")
+                    continue
         except Exception as e:
-            print("Failed to get required data.", e)       
+            print("Failed to get required data.", e)   
+        return finalPortfolio
+
+
+# print(CreatePortfolio.get_closing_prices(["borr"], "3mo"))
 
