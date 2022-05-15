@@ -19,5 +19,3 @@ class CreatePortfolio:
         return finalPortfolio
 
 
-# print(CreatePortfolio.get_closing_prices(["borr"], "3mo"))
-

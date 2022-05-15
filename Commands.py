@@ -37,6 +37,13 @@ class Commands:
     def getStdvToPriceRatio():
         global portfolio
         print(value.standardDeviationPriceRatio(portfolio))
+    
+    def help():
+        print("type 'currprc' for current closing price")
+        print("type 'mean' for mean price")
+        print("type 'stdv' for standard deviation")
+        print("type 'p/m' for price/mean relation")
+        print("type 'stdv/curr' for current price relative to mean")
 
 
 

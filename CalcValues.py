@@ -63,11 +63,11 @@ class CalcValues:
     
     def standardDeviationPriceRatio(portfolio):
         global standardDeviationDict
-        priceToMean=CalcValues.priceToMean(portfolio)
+        currentPrice=CalcValues.currentPrice(portfolio)
         meanStdvRatio={}
         try:      
             for ticker in portfolio.keys():
-                meanStdvRatio[ticker]=currentPriceDict[ticker]/standardDeviationDict[ticker]
+                meanStdvRatio[ticker]=currentPrice[ticker]/standardDeviationDict[ticker]
         except Exception as e: 
             print("Failed to calculate ratio")
         return meanStdvRatio
