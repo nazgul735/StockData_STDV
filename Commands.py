@@ -39,7 +39,7 @@ class Commands:
         print(value.standardDeviationPriceRatio(portfolio))
     
     def help():
-        print("type 'currprc' for current closing price")
+        print("type 'curr' for current closing price")
         print("type 'mean' for mean price")
         print("type 'stdv' for standard deviation")
         print("type 'p/m' for price/mean relation")
