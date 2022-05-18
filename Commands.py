@@ -1,7 +1,6 @@
 from CalcValues import CalcValues as value
 from CreatePortfolio import CreatePortfolio as cp
 
-
 class Commands: 
     portfolio=None
     period=""
@@ -43,7 +42,7 @@ class Commands:
         print("type 'mean' for mean price")
         print("type 'stdv' for standard deviation")
         print("type 'p/m' for price/mean relation")
-        print("type 'stdv/curr' for current price relative to mean")
+        print("type 'stdv/curr' for how many stdv relative to mean")
 
 
 
@@ -51,10 +50,3 @@ class Commands:
     
 
 
-# o=Commands
-# o.addTickers()
-# o.getStdv()
-# o.getMeanPrice()
-# o.getCurrentPrice()
-# o.getPriceToMean()
-# o.getStdvToMeanRatio()
