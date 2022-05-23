@@ -4,10 +4,10 @@ class DBUtils:
 
     dbQuery = [
         """CREATE TABLE IF NOT EXISTS "Portfolio" ( 
-        TICKER  TEXT PRIMARY KEY,
-        STDV TEXT NOT NULL,
-        MEAN  TEXT NOT NULL,
-        STDVMEANRATE  TEXT NOT NULL);"""
+        ticker  TEXT PRIMARY KEY,
+        stdv TEXT NOT NULL,
+        mean  TEXT NOT NULL,
+        stdvMeanRate  TEXT NOT NULL);"""  
         ]
 
     def create_connection():
@@ -20,3 +20,15 @@ class DBUtils:
                 print(e)
 
             return cur
+    
+    def initialiseDB(cursor):
+        for table in dbQuery:
+            cursor.execute(table)
+    
+    def setRating(cursor, ticker: str, stdv: str, mean: str, stdvMeanRate: str):
+        ticker = input("ID: ")
+        stdv = input("Email: ")
+        mean = input("CoffeeID: ")
+        stdvMeanRate: input("Note: ")
+        cursor.execute("INSERT INTO accounts VALUES (?, ?, ?, ?)", [
+            ticker, stdv, mean, stdvMeanRate])

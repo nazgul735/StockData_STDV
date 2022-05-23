@@ -2,7 +2,7 @@ from Commands import Commands as cmd
 from pyfiglet import Figlet
 
 f = Figlet(font="slant")
-print(f.renderText("AlgoQuant"))
+print(f.renderText("Quantalyst"))
     
 print("Add tickers")
 cmd.addTickers()
