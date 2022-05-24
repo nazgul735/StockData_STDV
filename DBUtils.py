@@ -7,7 +7,8 @@ class DBUtils:
         ticker  TEXT PRIMARY KEY,
         stdv TEXT NOT NULL,
         mean  TEXT NOT NULL,
-        stdvMeanRate  TEXT NOT NULL);"""  
+        stdvMeanRate  TEXT NOT NULL,
+        period TEXT NOT NULL);"""  
         ]
 
     def create_connection():
@@ -25,10 +26,10 @@ class DBUtils:
         for table in dbQuery:
             cursor.execute(table)
     
-    def setRating(cursor, ticker: str, stdv: str, mean: str, stdvMeanRate: str):
+    def setRating(cursor, ticker: str, stdv: str, mean: str, stdvMeanRate: str, period: str):
         ticker = input("ID: ")
         stdv = input("Email: ")
         mean = input("CoffeeID: ")
         stdvMeanRate: input("Note: ")
-        cursor.execute("INSERT INTO accounts VALUES (?, ?, ?, ?)", [
+        cursor.execute("INSERT INTO accounts VALUES (?, ?, ?, ?, ?)", [
             ticker, stdv, mean, stdvMeanRate])
