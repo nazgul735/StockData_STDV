@@ -1,6 +1,7 @@
 from CalcValues import CalcValues as value
 from CreatePortfolio import CreatePortfolio as cp
 import pandas as pd
+import Histogram as h
 
 class Commands: 
     portfolio=None
@@ -47,6 +48,11 @@ class Commands:
         df=pd.DataFrame(list(value.standardDeviationPriceRatio(portfolio).items()),columns=["Ticker", "STDV/P"])
         print(df)
         # print(value.standardDeviationPriceRatio(portfolio))
+
+    def getDistribution():
+        global portfolio
+        h.makeDistribution(portfolio)
+
     
     def help():
         print("type '1' for current closing price")
@@ -55,7 +61,8 @@ class Commands:
         print("type '4' for price/mean relation")
         print("type '5' for how many stdv relative to mean")
 
-
+Commands.addTickers()
+Commands.getDistribution()
 
 
     
