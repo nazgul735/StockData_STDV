@@ -50,11 +50,12 @@ class CalcValues:
     def priceToMean(portfolio):
         global meanPriceDict
         global currentPriceDict
+        meanprice=CalcValues.averagePrice(portfolio)
         currentPrice=CalcValues.currentPrice(portfolio)
         priceToMeanDict={}
         for ticker in portfolio.keys():
             try:
-                priceToMeanDict[ticker]=currentPrice[ticker]-meanPriceDict[ticker]
+                priceToMeanDict[ticker]=currentPrice[ticker]-meanprice[ticker]
             except Exception as e:
                 print("Failed to calculate the spead", e)
         return priceToMeanDict
