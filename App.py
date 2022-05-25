@@ -1,6 +1,5 @@
 from Commands import Commands as cmd
 from pyfiglet import Figlet
-import sqlite3 as sql
 
 
 f = Figlet(font="slant")
